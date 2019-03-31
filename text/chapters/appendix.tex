@@ -1,0 +1,28 @@
+\appendix
+
+\section{How to add appendices}
+Write your text or add your images between \verb:\section: and \verb:\sectionend:.
+
+\sectionend
+
+
+\section{Python sample}
+\label{app:python}
+
+% Formatting
+\lstdefinestyle{customstyle}{
+  keywordstyle=\color{magenta},
+  stringstyle=\color{orange},
+  numbers=left
+} \lstset{style=customstyle}
+
+% Some sample code
+\begin{lstlisting}[language=Python]
+import numpy as np
+def fun(param):
+  return param
+
+fun("hello")
+\end{lstlisting}
+
+\sectionend

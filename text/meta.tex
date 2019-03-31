@@ -1,0 +1,66 @@
+% Use LUT thesis style
+\documentclass[12pt,a4paper]{lutmscthesis}
+
+% Set encoding and locale
+\usepackage[utf8]{inputenc}
+\usepackage[english,finnish]{babel}
+\usepackage{csquotes}
+
+% Font etc.
+\usepackage{times}
+\usepackage{setspace}
+\usepackage{verbatim}
+\usepackage[intlimits]{amsmath}
+
+% Better list handling
+\usepackage{enumitem}
+
+% Code formatting
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Align tables on decimal point
+\usepackage{multirow}
+
+% Harvard style referencing
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{references.bib}
+
+% Ensure figure captions are below and table captions are above the content.
+\usepackage{float}
+\floatstyle{plain}\restylefloat{figure}
+\floatstyle{plaintop}\restylefloat{table}
+
+% Enable hyperlinks and hide their borders
+\usepackage[pdfborder={0 0 0}]{hyperref}
+
+
+% Thesis information
+\title{Title of the thesis}
+\titlefin{Tutkielman otsikko suomeksi}
+
+\author{Sami Kohvakka}
+\Year{2019}
+
+\School{School of Business and Management}
+\SchoolFin{School of Business and Management}
+
+\Major{Strategic Finance and Business Analytics}
+\MajorFin{Strateginen rahoitus ja liiketoiminta-analytiikka}
+
+\Keywords{pairs trading, stock markets}
+\KeywordsFin{parikaupankäynti}
+
+% Cover page setup
+\Supervisor{Eero Pätäri D.Sc. (Econ.)}
+\SupervisorTitle{Supervisor}
+\Examiner{Some Examiner D.Sc. (Econ.)}
+\ExaminerTitle{2nd examiner}
+
+% Examiners in abstract
+\ExaminersEng{Professor Eero Pätäri\\Research Fellow N.N.}
+\ExaminersFin{Professori Eero Pätäri\\Tutkijaopettaja N.N.}
+
+% number of figures, tables and appendices
+\addtostats{, 3 figures, 1 table, and 2 appendices}
+\addtostatsfin{, 3 kuvaa, 1 taulukko ja 2 liitettä}
