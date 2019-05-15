@@ -19,4 +19,8 @@ LaTeX template for Master's Thesis at LUT School of Business and Management.
 
 Using text editor of choise, modify files to to your preference. `main.tex` serves as an entry point to the document, and PDF can be built by calling `latexmk -pdf -outdir=someoutputfolder main` in `/text` folder. 
 
-> Visual Studio Code is recommended (free) for editing the files and building the PDF document on save. Installing the extension `LaTeX Workshop` from author James Yu should do the trick. 
+> Visual Studio Code is recommended (free) for editing the files and building the PDF
+> document on save. Installing the extension [LaTeX
+> Workshop](https://github.com/James-Yu/LaTeX-Workshop) from author James Yu should do the
+> trick. [Rewrap](https://github.com/stkb/Rewrap) is another solid extension for VS Code.
+> 
