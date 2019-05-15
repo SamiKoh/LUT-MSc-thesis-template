@@ -22,14 +22,13 @@
 %   some dependencies, switched to Perl based latexmk and removed old makefiles)
 
 % Packages that this document class includes automatically:
-% geometry, graphicx, subfig, caption(3)
+% geometry, graphicx, subfig, caption(3), amsmath,
 
 % See the accompanying .tex files for usage information
 
 % ------------ Identification
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{lutmscthesis}
-
 
 % ------------ Initial code
 \RequirePackage{ifthen}
@@ -50,10 +49,46 @@
 \RequirePackage{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{extramarks}
+\RequirePackage[intlimits]{amsmath}
+
 \RequirePackage{placeins}
+\RequirePackage{setspace}
+\RequirePackage{verbatim}
 
 % Required for labeling lists
 \RequirePackage{scrextend}
+
+% --------- Harvard style referencing using BibLaTex ---------
+
+\RequirePackage[backend=biber,style=authoryear,doi=false,isbn=false,eprint=false,backref=true,citetracker=true,maxcitenames=1]{biblatex}
+
+% Abbreviate with et al. starting from second reference to same authors
+% https://tex.stackexchange.com/questions/48846/biblatex-et-al-beginning-from-second-citation
+\AtEveryCitekey{%
+  \ifciteseen{}{\defcounter{maxnames}{3}\clearfield{namehash}}}
+
+% Volume/Issue style 53 (2), pp. 156-170 from
+% https://tex.stackexchange.com/questions/81569/biblatex-parentheses-around-the-volume-number-of-an-article
+
+\renewbibmacro*{volume+number+eid}{%
+  \printtext{vol.}
+  \printfield{volume}%
+  \setunit*{\addnbspace}% NEW (optional); there's also \addnbthinspace
+  \printfield{number}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}}
+  \DeclareFieldFormat[article]{number}{\mkbibparens{#1}
+}    
+
+% Url compression in References
+% Links can be prevented by inserting url=false to biblatex options
+\DeclareFieldFormat{url}{%
+\ifhyperref
+  {\href{#1}{\underline{Link}}}
+  {\url{#1}}}
+
+% --------------------------------------------------------------------
+
 
 % Set search path for images
 \graphicspath{.}
@@ -62,10 +97,13 @@
 \RequirePackage{caption}
 \RequirePackage{subfig}
 
-% Harvard referencing using natbib
-%\RequirePackage{natbib}
+% Ensure figure captions are below and table captions are above the content.
+\RequirePackage{float}
+\floatstyle{plain}\restylefloat{figure}
+\floatstyle{plaintop}\restylefloat{table}
 
-% ------------ Main code
+
+% ------------ Main code ----------------
 
 \AtBeginDocument{%
   \usepackage{lastpage}%
@@ -136,8 +174,6 @@
 % Subfloat caption style
 \captionsetup[subfloat]{labelfont=normalfont,labelformat=parens}
 
-% Harvard style references.
-%\bibliographystyle{agsm}
 
 % Cover page layout
 \renewcommand\maketitle{%
